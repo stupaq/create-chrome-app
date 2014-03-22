@@ -21,6 +21,7 @@ resourcePath="$appRoot/$name.app/Contents/Resources"
 execPath="$appRoot/$name.app/Contents/MacOS"
 profilePath="$appRoot/$name.app/Contents/Profile"
 plistPath="$appRoot/$name.app/Contents/Info.plist"
+cachePath="$profilePath/Cache"
 
 set -x
 
@@ -28,6 +29,11 @@ set -x
 mkdir -p $resourcePath
 mkdir -p $execPath
 mkdir -p $profilePath
+mkdir -p $cachePath
+
+# Prevent on disk caching
+touch $cachePath/index
+chmod -R ugo-w $cachePath
 
 # Convert the icon and copy into Resources
 if [ -f $icon ] ; then
