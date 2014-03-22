@@ -87,13 +87,11 @@
       "content_settings": {
          "clear_on_exit_migrated": true,
          "pattern_pairs": {
-            "[*.]sharelatex.com,*": {
-               "cookies": 1
-            }
          },
          "pref_version": 1,
          "whitelist_version": 1
       },
+      "created_by_version": "33.0.1750.152",
       "default_content_settings": {
          "cookies": 2,
          "geolocation": 2,
@@ -104,6 +102,7 @@
          "ppapi-broker": 2
       },
       "exit_type": "Normal",
+      "exited_cleanly": true,
       "managed_user_id": "",
       "name": "First user",
       "password_manager_enabled": false
