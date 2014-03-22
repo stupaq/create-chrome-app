@@ -2,17 +2,14 @@
 
 set -e
 
-echo "What should the Application be called (no spaces allowed e.g. GCal)?"
-read inputline
-name=$inputline
+name=$1
+url=$2
+icon=$3
 
-echo "What is the url (e.g. https://www.google.com/calendar/render)?"
-read inputline
-url=$inputline
-
-echo "What is the full path to the icon (e.g. /Users/username/Desktop/icon.png)?"
-read inputline
-icon=$inputline
+if [[ -z $name || -z $url || ! -r $icon ]]; then
+  echo -e "Missing or invalid arguments.\nUsage: $0 <name> <url> <icon_path>"
+  exit 1
+fi
 
 # Host configuration
 chromePath="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
@@ -41,7 +38,7 @@ fi
 # Create the executable
 cat >$execPath/$name <<EOF
 #!/bin/sh
-exec $chromePath  --app="$url" --user-data-dir="$profilePath" "\$@"
+exec $chromePath --app="$url" --user-data-dir="$profilePath" "\$@"
 EOF
 chmod +x $execPath/$name
 
