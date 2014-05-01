@@ -21,5 +21,4 @@ customize everything in the settings `command ,`:
 The app starts up very fast and takes around `2 MB` including
 high-resolution icon and created profile.
 
-Enjoy!
-
+Copyright (c) 2014 Mateusz Machalica
